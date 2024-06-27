@@ -21,9 +21,18 @@ document.getElementById('add-subject').addEventListener('click', () => {
     marks.min = '0';
     marks.max = '100';
 
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('delete-subject');
+    deleteButton.addEventListener('click', () => {
+        subjectDiv.remove();
+    });
+
     subjectDiv.appendChild(subjectName);
     subjectDiv.appendChild(creditHours);
     subjectDiv.appendChild(marks);
+    subjectDiv.appendChild(deleteButton);
 
     document.getElementById('subjects').appendChild(subjectDiv);
 });
@@ -49,10 +58,10 @@ document.getElementById('calculate-gpa').addEventListener('click', () => {
         else if (marks >= 50) gpa = 1.0;
         else gpa = 0.0;
 
+        totalGPA += gpa * creditHours;
+        totalCreditHours += creditHours;
     });
 
-    totalGPA += gpa * creditHours;
-    totalCreditHours += creditHours;
     const gpa = totalGPA / totalCreditHours;
-    document.getElementById('gpa').textContent = gpa.toFixed(2);
+    document.getElementById('gpa').textContent = totalCreditHours > 0 ? gpa.toFixed(2) : '0.00';
 });

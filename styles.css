@@ -51,6 +51,14 @@ button:hover {
     background-color: #0056b3;
 }
 
+.delete-subject {
+    background-color: #dc3545;
+}
+
+.delete-subject:hover {
+    background-color: #c82333;
+}
+
 #result {
     margin-top: 20px;
     text-align: center;
