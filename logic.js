@@ -44,7 +44,11 @@ document.getElementById('calculate-gpa').addEventListener('click', () => {
 
     subjects.forEach(subject => {
         const creditHours = parseFloat(subject.querySelector('.credit-hours').value);
-        const marks = parseFloat(subject.querySelector('.marks').value);
+        let marks = parseFloat(subject.querySelector('.marks').value);
+
+        if (creditHours === 1) {
+            marks = (marks / 50) * 100;  // Adjust marks to be out of 100 if credit hours are 1
+        }
 
         let gpa = 0;
         if (marks >= 85) gpa = 4.0;
@@ -62,6 +66,6 @@ document.getElementById('calculate-gpa').addEventListener('click', () => {
         totalCreditHours += creditHours;
     });
 
-    const gpa = totalGPA / totalCreditHours;
-    document.getElementById('gpa').textContent = totalCreditHours > 0 ? gpa.toFixed(2) : '0.00';
+    const gpa = totalCreditHours > 0 ? (totalGPA / totalCreditHours).toFixed(2) : '0.00';
+    document.getElementById('gpa').textContent = gpa;
 });
