@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GPA Calculator</h1>
+        <form id="gpa-form">
+            <div id="subjects">
+                <div class="subject">
+                    <input type="text" placeholder="Subject Name" class="subject-name">
+                    <input type="number" placeholder="Credit Hours" class="credit-hours" min="1" max="5">
+                    <input type="number" placeholder="Marks" class="marks" min="0" max="100">
+                </div>
+            </div>
+            <button type="button" id="add-subject">Add Subject</button>
+            <button type="button" id="calculate-gpa">Calculate GPA</button>
+        </form>
+        <div id="result">
+            <h2>Your GPA: <span id="gpa"></span></h2>
+        </div>
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>
