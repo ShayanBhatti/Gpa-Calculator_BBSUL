@@ -1,3 +1,4 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -26,8 +27,8 @@ form {
 
 .subject, #previous-gpa-section {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .subject input, #previous-gpa-section input {
@@ -36,6 +37,13 @@ form {
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.note {
+    flex: 1 100%;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
 }
 
 button {
@@ -63,4 +71,24 @@ button:hover {
 #result {
     margin-top: 20px;
     text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    form {
+        gap: 5px;
+    }
+    
+    .subject, #previous-gpa-section {
+        flex-direction: column;
+    }
+    
+    .subject input, #previous-gpa-section input {
+        width: 100%;
+        margin-bottom: 5px;
+    }
 }
