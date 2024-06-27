@@ -38,6 +38,9 @@ document.getElementById('add-subject').addEventListener('click', () => {
 });
 
 document.getElementById('calculate-gpa').addEventListener('click', () => {
+    const previousGPA = parseFloat(document.getElementById('previous-gpa').value) || 0;
+    const previousCreditHours = parseFloat(document.getElementById('previous-credit-hours').value) || 0;
+
     const subjects = document.querySelectorAll('.subject');
     let totalGPA = 0;
     let totalCreditHours = 0;
@@ -65,6 +68,12 @@ document.getElementById('calculate-gpa').addEventListener('click', () => {
         totalGPA += gpa * creditHours;
         totalCreditHours += creditHours;
     });
+
+    // Include previous GPA and credit hours in the calculation
+    if (!isNaN(previousGPA) && !isNaN(previousCreditHours)) {
+        totalGPA += previousGPA * previousCreditHours;
+        totalCreditHours += previousCreditHours;
+    }
 
     const gpa = totalCreditHours > 0 ? (totalGPA / totalCreditHours).toFixed(2) : '0.00';
     document.getElementById('gpa').textContent = gpa;

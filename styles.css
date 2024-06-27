@@ -14,7 +14,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }
 
@@ -24,12 +24,13 @@ form {
     gap: 10px;
 }
 
-.subject {
+.subject, #previous-gpa-section {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
-.subject input {
+.subject input, #previous-gpa-section input {
     flex: 1;
     padding: 10px;
     font-size: 16px;
